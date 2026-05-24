@@ -9,6 +9,10 @@
 
     <body>
 
+        <div id="toast" class="toast">
+            🍕Піцу додано
+        </div>
+
         <header>
             <h2>PizzaShop🍕</h2>
             <nav>
@@ -35,8 +39,11 @@
 
         </header>   
         
-        <div id="cart-items" class="cart-items">
-            <p>Кошик порожній🥲</p>
+        <div id="cart-panel" class="cart-panel">
+            <h2>🛒 Кошик</h2>
+            <div id="cart-items" class="cart-items">
+                <p>Кошик порожній🥲</p>
+            </div>
         </div>
 
 
@@ -51,6 +58,13 @@
 
     <section id="menu" class="menu-section">
         <h2> Наше меню🍕</h2>
+        
+        <input
+        type="text"
+        id="search"
+        placeholder="🔎Пошук піци..."
+        onkeyup="searchPizza()"
+        />
 
         <div class="menu">
             <div class="pizza-card">
@@ -128,3 +142,4 @@
 
     </body>
     </html>
+
