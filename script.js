@@ -1,5 +1,4 @@
 
-
         let count = Number(localStorage.getItem("count")) || 0;
         let total = Number(localStorage.getItem("total")) || 0;
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -207,6 +206,12 @@
                         <p>
                             🍕${item.name}
                         </p>
+
+                        <small>
+                            ${item.quantity} *${item.price} грн =
+                            ${item.quantity * item.price} грн
+                        </small>
+
                         <div>
                             <button onclick="decreaseQuantity('${item.name}')">
                                 -
@@ -231,6 +236,10 @@
                 `;
             });
 
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("light-theme");
         }
         
         document.getElementById("cart").innerHTML =
