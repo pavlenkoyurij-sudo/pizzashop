@@ -24,27 +24,44 @@
                 </a>
             </nav>
 
-             <h2 id="cart">
-            🛒 У кошику: 0
-            </h2>
-
-            <button class="clear-btn" onclick="clearCart()">
-                Очистити
-            </button>
-
             <button class="order-btn" onclick="makeOrder()">
                 Оформити замовлення✅
                 <span id="order-total">(0 грн)</span>
             </button>
 
+            <button class="clear-btn" onclick="clearCart()">
+                Очистити
+            </button>
+
+            <button onclick="toggleTheme()">
+                🌙
+            </button>
+
+        </div>
+
+
         </header>   
         
-        <div id="cart-panel" class="cart-panel">
-            <h2>🛒 Кошик</h2>
-            <div id="cart-items" class="cart-items">
+        <div class="cart-wrapper">
+
+            <h2 id="cart">
+            🛒 У кошику: 0
+            </h2>
+
+            <div id="cart-panel" class="cart-panel">
+                <h2>🛒 Кошик</h2>
+                <div id="cart-items" class="cart-items">
                 <p>Кошик порожній🥲</p>
+                </div>
             </div>
+
+
+
         </div>
+
+
+        
+
 
 
     <section id="home" class="hero">
