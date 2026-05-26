@@ -1,4 +1,5 @@
 
+
         let count = Number(localStorage.getItem("count")) || 0;
         let total = Number(localStorage.getItem("total")) || 0;
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -241,6 +242,30 @@
         function toggleTheme() {
             document.body.classList.toggle("light-theme");
         }
+
+        function openModal(title, description, price, image) {
+
+            document.getElementById("pizza-modal")
+            .style.display = "flex";
+
+            document.getElementById("modal-title")
+            .innerHTML = title;
+
+            document.getElementById("modal-description")
+            .innerHTML = description;
+
+            document.getElementById("modal-price")
+            .innerHTML = price + " грн";
+
+            document.getElementById("modal-img")
+            .src = image;
+        }
+
+        function closeModal() {
+            document.getElementById("pizza-modal")
+            .style.display = "none";
+        }
+
         
         document.getElementById("cart").innerHTML =
         "🛒 У кошику: " + count;
