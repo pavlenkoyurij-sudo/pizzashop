@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
+    
+
     <body>
 
         <div id="toast" class="toast">
@@ -59,11 +62,6 @@
 
         </div>
 
-
-        
-
-
-
     <section id="home" class="hero">
 
         <h1>Вас вітає онлайн магазин найсмачнішої піци</h1>
@@ -90,6 +88,11 @@
                 <p>Дуже смачна та соковита курка з сиром та зеленню. Ціна: 300грн.</p>
                 <button onclick="addToCart('куркою🍕', 300)">Замовити та зжерти🤭</button>
 
+                <button onclick="openModal('Піца з куркою🍕','це неймовірне поєднання фантастичних смаків найсвіжішої курятини, вершків, волоських горіхів, сиру дорблю, пармезану, оливкової олії та часнику. Це це різновид класичної італійської страви, де основою з пухкого тіста виступає ніжне куряче філе, залите сиром з духмяною зеленню. До кожної піци наш Шеф додає частинку своєї душі', 300,'https://images.pexels.com/photos/27819655/pexels-photo-27819655.jpeg'
+                )">
+                    Детальніше🔎
+                </button>
+
             </div>                
 
             <div class="pizza-card">
@@ -97,6 +100,12 @@
                 <h2>Піца з грибами🍕</h2>
                 <p>Духмяні шампіньйони з смачнючою моцарелою. Ціна: 300грн.</p>
                 <button onclick="addToCart('грибами🍕', 300)">Замовити та зжерти🤭</button> 
+
+                <button onclick="openModal('Піца з грибами🍕','це хрустке тісто та незабутній аромат грибів (гливи) в поєднанні з ніжними смаками моцарели та пармезану, доповнені пахощами базиліку та орегано перенесуть вас в світ блаженства та насолоди', 300,'https://images.pexels.com/photos/6147819/pexels-photo-6147819.jpeg'
+                )">
+                    Детальніше🔎
+                </button>
+
             
             </div> 
 
@@ -106,6 +115,11 @@
                 <h2>Піца Буржуйська🍕</h2>
                 <p>Наша фірмова піца з шинкою кропом - дуже багатий та насичений смак. Ціна: 350грн.</p>
                 <button onclick="addToCart('шинкою🍕', 350)">Замовити та зжерти🤭</button> 
+                 <button onclick="openModal('Піца Буржуйська🍕','наша фірмова піца😎 з соковитою шинкою та кропом подарує незабутні відчуття весняного аромату, насиченого смаку шинки та моцарели. Лише один шматочок і ти розумієш, що життя насправді вдалося', 350,'https://images.pexels.com/photos/20117230/pexels-photo-20117230.jpeg'
+                )">
+                    Детальніше🔎
+                </button>
+
                 
             </div> 
         </div>
@@ -142,7 +156,7 @@
 
             <p>📞Телефон: +38 (XXX) XXX XX XX</p>
             <p>
-                <a href="mailto:yurij.webdev@gmail.com" titele="Написати нам">
+                <a href="mailto:yurij.webdev@gmail.com" title="Написати нам">
                     📧E-mail
                 </a>
             </p>
@@ -157,6 +171,27 @@
 
         <script src="script.js"></script> 
 
+
+        <div id="pizza-modal" class="modal">
+            
+            <div class="modal-content">
+
+                <span class="close-modal"
+                onclick="closeModal()">
+                    ×
+                </span>
+
+                <img id="modal-img" src="">
+
+                <h2 id="modal-title"></h2>
+
+                <p id="modal-description"></p>
+
+                <h3 id="modal-price"></h3>
+
+            </div>
+
+        </div>
+
     </body>
     </html>
-
