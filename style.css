@@ -435,3 +435,65 @@
         .light-theme .adv-card h2{
             color: black;
         }
+
+        .modal {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+
+            display: none;
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: #222;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow: auto;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+
+            border-radius: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+
+            top: 15px;
+            right: 20px;
+
+            cursor: pointer;
+
+            font-size: 25px;
+
+            color: white;
+        }
+
+        .modal-content p {
+            line-height: 1.6;
+        }
+
+
