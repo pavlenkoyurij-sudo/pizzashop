@@ -1,5 +1,4 @@
 
-
         let count = Number(localStorage.getItem("count")) || 0;
         let total = Number(localStorage.getItem("total")) || 0;
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -48,16 +47,17 @@
 
                 alert("Ваш кошик порожній🥲");
 
-            } else {
-        
-                alert(
-                    "Дякуємо за замовлення! 👌\n\n" +
-                    "Піц у кошику: " + count + 
-                    "\nСума: "+ total + " грн"
-                );
+                return;
 
-                resetCart()
             }
+
+            const orderModal = document.getElementById("order-modal");
+            orderModal.style.display = "flex";
+
+            //мікротаймаут, щоб браузер встиг помітити display перед початком анімації
+            setTimeout(() => {
+                orderModal.classList.add("show");
+            }, 10);
         }   
 
         function resetCart() {
@@ -246,7 +246,13 @@
         function openModal(title, description, price, image) {
 
             document.getElementById("pizza-modal")
-            .style.display = "flex";
+            const modal = document.getElementById("pizza-modal");
+
+            modal.style.display = "flex";
+
+            setTimeout(() => {
+                modal.classList.add("show");
+            }, 10);
 
             document.getElementById("modal-title")
             .innerHTML = title;
@@ -261,12 +267,95 @@
             .src = image;
         }
 
-        function closeModal() {
-            document.getElementById("pizza-modal")
-            .style.display = "none";
+        function closeModal(event) {
+            if (event.target.id === "pizza-modal") {
+                
+                const modal = document.getElementById("pizza-modal");
+
+                modal.classList.remove("show");
+
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }   
         }
 
+        function closeModalButton() {
+
+           const modal = document.getElementById("pizza-modal");
+
+           modal.classList.remove("show");
+
+           setTimeout(() => {
+
+           }, 300);
+ 
+        }
+
+        const btn = document.getElementById("scrollToTopBtn");
+
+                //показуєт кнопку, коли юзер прокручує сторінку до низу
+        window.addEventListener("scroll", function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.classList.add("show");
+            } else {
+                btn.classList.remove("show");
+            }
+        });
+
         
+                //прокручує сторінку плавно до самого верху при наимсканні
+        btn.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"//забезпечує плавний скролінг
+            });
+        });
+
+
+        //функції форми замовлення
+        function closeOrderModal() {
+            
+            const orderModal = document.getElementById("order-modal");
+            orderModal.classList.remove("show");
+
+            //чекає 300мс (поки триває transition в css), а потім повністю ховає
+            setTimeout(() => {
+                orderModal.style.display = "none";
+            }, 300);
+        }
+
+        function submitOrder() {
+
+            const name =
+            document.getElementById("customer-name").value;
+
+            const phone =
+            document.getElementById("customer-phone").value;
+
+            const address =
+            document.getElementById("customer-address").value;
+
+            if (!name || !phone || !address) {
+                alert(
+                    "Заповніть всі обов'язкові поля😉");
+                
+                return;
+            }
+
+            alert(
+                "Дякуємо за замовлення, " + name + "🍕\n\n" +
+                "Наш кур'єр вже мчить до Вас😎"
+            );
+
+            closeOrderModal();
+
+            resetCart();
+        }
+
+
+
+         
         document.getElementById("cart").innerHTML =
         "🛒 У кошику: " + count;
 
@@ -275,3 +364,8 @@
 
        renderCart();
         
+
+
+
+            
+
