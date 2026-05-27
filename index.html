@@ -169,15 +169,21 @@
 
         </footer>
 
+        <button id="scrollToTopBtn" aria-label="Наверх">
+            ⬆
+        </button> <!--кнопка наверх-->
+
         <script src="script.js"></script> 
 
-
-        <div id="pizza-modal" class="modal">
+            <!--iнформаційна вкладка-картка з описом-->
+        <div id="pizza-modal"
+        class="modal"
+        onclick="closeModal(event)">
             
             <div class="modal-content">
 
                 <span class="close-modal"
-                onclick="closeModal()">
+                onclick="closeModalButton()">
                     ×
                 </span>
 
@@ -188,6 +194,46 @@
                 <p id="modal-description"></p>
 
                 <h3 id="modal-price"></h3>
+
+            </div>
+
+        </div>
+        
+        <!--форма замовлення-->
+        <div id="order-modal" class="modal">
+
+            <div class="modal-content">
+
+                <span class="close-modal"
+                onclick="closeOrderModal()">
+                    ×
+            </span>
+
+            <h2>Оформлення замовлення🍕</h2>
+
+            <input
+            type="text"
+            id="customer-name"
+            placeholder="Ваше ім'я">
+
+            <input
+            type="tel"
+            id="customer-phone"
+            placeholder="Телефон">
+
+            <input
+            type="text"
+            id="customer-address"
+            placeholder="Адреса доставки">
+
+            <textarea
+            id="customer-comment"
+            placeholder="Коментар до замовлення">
+            </textarea>
+
+            <button onclick="submitOrder()">
+                Підтвердити замовлення🔥
+            </button>
 
             </div>
 
